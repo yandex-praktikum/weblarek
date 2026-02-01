@@ -1,15 +1,14 @@
-@use "variables" as *;
-@use "mixins";
+@use 'variables' as *;
+@use 'mixins';
 
 .gallery {
-  @include mixins.container;
-  @include mixins.grid(600px, 24px);
+  @include mixins.container(80px, 0, 160px, 0);
+  @include mixins.grid(648px, 24px);
 
   &__item {
-    border: none;
+    @include mixins.flex(column);
     border-radius: $defaultBorderRadius;
     @include mixins.selectable($secondary, 2px, $primaryLight);
-
     &::after {
       border-radius: 0.8rem;
     }

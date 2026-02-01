@@ -1,11 +1,11 @@
-@use "variables" as *;
+@use 'variables' as *;
 
-@mixin container($top: $defaultPadding, $bottom: $defaultPadding) {
+@mixin container($top: $defaultPadding, $right: $defaultPadding, $bottom: $defaultPadding, $left: $defaultPadding) {
   margin: auto;
   width: 100%;
   box-sizing: border-box;
   max-width: $maxPageWidth;
-  padding: $top $defaultPadding $bottom;
+  padding: $top $right $bottom $left;
 }
 
 @mixin sublayer {
@@ -25,4 +25,5 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax($min, 1fr));
   grid-gap: $gap;
+  grid-auto-rows: auto;
 }

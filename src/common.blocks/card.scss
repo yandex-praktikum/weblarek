@@ -3,32 +3,29 @@
 
 .card {
   @include mixins.flex(column);
-  border: 0;
+  min-height: 100%; // Позволяет карточке тянуться по высоте ячейки ряда
   border-radius: $defaultBorderRadius;
   background-color: $primary;
   color: white;
   padding: $defaultPadding;
   align-items: flex-start;
 
-  &_full {
-    flex-direction: row;
-    background-color: transparent;
-    align-items: center;
-
-    .card__title {
-      flex-grow: 0;
-    }
-  }
-
+  &_full,
   &_compact {
     flex-direction: row;
     background-color: transparent;
     align-items: center;
-    border-radius: 0;
+  }
 
+  &_compact {
+    border-radius: 0;
     .card__title {
       flex-grow: 1;
     }
+  }
+
+  &_full .card__title {
+    flex-grow: 0;
   }
 
   &__column {
@@ -54,6 +51,7 @@
     font-weight: 500;
     margin: 0;
     flex-grow: 1;
+    max-width: 83%;
   }
   &__text {
     text-align: left;
@@ -84,5 +82,8 @@
   &__action {
   }
   &__price {
+    font-size: 30px;
+    line-height: 100%;
+    margin: 0;
   }
 }
